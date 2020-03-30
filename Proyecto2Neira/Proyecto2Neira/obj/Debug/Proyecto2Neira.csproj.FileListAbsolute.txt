@@ -1,0 +1,5 @@
+/Users/c/Desktop/laboratorio-02-cristobalneira/Proyecto2Neira/Proyecto2Neira/obj/Debug/Proyecto2Neira.csprojAssemblyReference.cache
+/Users/c/Desktop/laboratorio-02-cristobalneira/Proyecto2Neira/Proyecto2Neira/bin/Debug/Proyecto2Neira.exe
+/Users/c/Desktop/laboratorio-02-cristobalneira/Proyecto2Neira/Proyecto2Neira/bin/Debug/Proyecto2Neira.pdb
+/Users/c/Desktop/laboratorio-02-cristobalneira/Proyecto2Neira/Proyecto2Neira/obj/Debug/Proyecto2Neira.exe
+/Users/c/Desktop/laboratorio-02-cristobalneira/Proyecto2Neira/Proyecto2Neira/obj/Debug/Proyecto2Neira.pdb
