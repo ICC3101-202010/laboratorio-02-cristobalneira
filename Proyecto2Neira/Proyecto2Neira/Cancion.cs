@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 public class Cancion
 {
     private string nombre;
@@ -6,33 +10,33 @@ public class Cancion
     private string artista;
     private string genero;
 
-    public Cancion(string n, string al, string ar, string g)
+    public Cancion(string nombre, string album, string artista, string genero)
     {
-        this.nombre = n;
-        this.album = al;
-        this.artista = ar;
-        this.genero = g;
+        this.nombre = nombre;
+        this.album = album;
+        this.artista = artista;
+        this.genero = genero;
     }
-    public string NombreCancion()
+    public string GetName()
     {
         return nombre;
     }
-    public string AlbumCancion()
+    public string GetAlbum()
     {
         return album;
     }
-    public string ArtistaCancion()
+    public string GetArtista()
     {
         return artista;
     }
-    public string GeneroCancion()
+    public string GetGenero()
     {
         return genero;
     }
 
-    public String Informacion()
+    public string Informacion()
     {
-        return " genero: " + genero + ", artista: " + artista + ", album: " + album + ", nombre:" + nombre;
+        return " Genero: " + genero + ", Artista: " + artista + ", Album: " + album + ", Nombre:" + nombre;
     }
 
 }

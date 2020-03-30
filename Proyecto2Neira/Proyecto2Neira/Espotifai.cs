@@ -1,37 +1,104 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 public class Espotifai
 
 {
     public List<Cancion> canciones;
+    public List<Cancion> cancionesporcriterio;
 
+
+    //Lista= canciones
     public Espotifai()
     {
         canciones = new List<Cancion>();
+        cancionesporcriterio = new List<Cancion>();
     }
-    public void Agregar(Cancion cancion)
+    public bool AgregarCancion(Cancion cancionNueva)
     {
-        canciones.Add(cancion);
-    }
+        string infoCancion = cancionNueva.Informacion();
+        bool existeCancion = false;
 
-
-    /*public bool AgregarCancion(Cancion cancion)
-    {
-        bool existen = (from c in canciones where cancion.NombreCancion = cancion select c).Any();
-        bool existear = (from c in canciones where c.cn = cancion select c).Any();
-        bool existeal = (from c in canciones where c.cn = cancion select c).Any();
-
-        if (existen == true && existear == true && existeal == true)
+        foreach (Cancion cancion in canciones)
         {
-            return false;
+            if (cancion.Informacion() == infoCancion)
+            {
+                existeCancion = true;
+            }
+
+        }
+        if (existeCancion == false)
+        {
+            canciones.Add(cancionNueva);
         }
         else
         {
-            canciones.Add(cancion);
-            return true;
+            Console.WriteLine("La cancion de nombre: '" + cancionNueva.GetName() + "' ya existe en la lista de canciones");
         }
-        */
-    
+        return existeCancion;
+    }
+
+    public void VerCanciones()
+    {
+        int c = 0;
+        foreach (Cancion cancion in canciones)
+        {
+            c += 1;
+            Console.WriteLine(cancion.Informacion());
+        }
+        if (c == 0)
+        {
+            Console.WriteLine("No hay canciones en el programa");
+        }
+    }
+
+    public List<Cancion> CancionesPorCriterio(string criterio, string valor)
+    {
+        foreach (Cancion cancion in canciones)
+        {
+            string nombrevalor = cancion.GetName();
+            string artistavalor = cancion.GetArtista();
+            string albumvalor = cancion.GetAlbum();
+            string generovalor = cancion.GetGenero();
+
+            if (criterio == "nombre" && nombrevalor == valor)
+            {
+                cancionesporcriterio.Add(cancion);
+            }
+            else if (criterio == "artista" && artistavalor == valor)
+            {
+                cancionesporcriterio.Add(cancion);
+            }
+            else if (criterio == "genero" && generovalor == valor)
+            {
+                cancionesporcriterio.Add(cancion);
+
+            }
+            else if (criterio == "album" && albumvalor == valor)
+            {
+
+                cancionesporcriterio.Add(cancion);
+            }
+
+            int c = 0;
+            foreach (Cancion cancion1 in cancionesporcriterio)
+            {
+                c += 1;
+                Console.WriteLine(cancion1.Informacion());
+            }
+            if (c == 0)
+            {
+                Console.WriteLine("Error no hay canciones en el programa con ese valor de criterio");
+            }
+            else
+            {
+                Console.WriteLine("Anteriormente se muestran las canciones que se encontraron en el programa");
+            }
+
+        }
+        return cancionesporcriterio;
+    }
 }
