@@ -9,13 +9,12 @@ public class Espotifai
 
 {
     private List<Cancion> canciones;
-    private List<Cancion> cancionesporcriterio;
     private List<Playlist> playlists;
 
     public Espotifai()
     {
         canciones = new List<Cancion>();
-        cancionesporcriterio = new List<Cancion>();
+        
         playlists = new List<Playlist>();
     }
 
@@ -59,6 +58,8 @@ public class Espotifai
 
     public List<Cancion> CancionesPorCriterio(string criterio, string valor)
     {
+        List<Cancion> cancionesporcriterio = new List<Cancion>();
+        int c = 0;
         foreach (Cancion cancion in canciones)
         {
             string nombrevalor = cancion.GetName();
@@ -84,28 +85,33 @@ public class Espotifai
 
                 cancionesporcriterio.Add(cancion);
             }
-
-            int c = 0;
-            foreach (Cancion cancion1 in cancionesporcriterio)
+        }
+        foreach (Cancion cancion1 in cancionesporcriterio)
             {
                 c += 1;
                 Console.WriteLine(cancion1.Informacion());
             }
-            if (c == 0)
-            {
-                Console.WriteLine("Error no hay canciones en el programa con ese valor de criterio");
-            }
-            else
-            {
-                Console.WriteLine("Anteriormente se muestran las canciones que se encontraron en el programa");
-
-            }
+        if (c == 0)
+        {
+            Console.WriteLine("Error no hay canciones en el programa con ese valor de criterio");
         }
+        else if (c!=0)
+        {
+            Console.WriteLine("Anteriormente se muestran las canciones que se encontraron en el programa");
+        }
+        
         return cancionesporcriterio;
     }
+
+
+
+
   
     public bool GenerarPlaylist(string criterio, string valorcriterio, string nombrePlaylist)
     {
+        //criterio = nombre, valor= a , nombre = playlist1
+        List<Cancion> cancionesporcriterio = new List<Cancion>();
+        Playlist playlistnueva = new Playlist(nombrePlaylist);
         bool generar = false;
         bool generarp = true;
 
@@ -124,59 +130,77 @@ public class Espotifai
             string artistavalor = cancion.GetArtista();
             string albumvalor = cancion.GetAlbum();
             string generovalor = cancion.GetGenero();
-            
+
 
             if (criterio == "nombre" && nombrevalor == valorcriterio)
             {
                 generar = true;
+                playlistnueva.AgregarCancionesPlaylist(cancion);
+                cancionesporcriterio.Add(cancion);
+
             }
             else if (criterio == "artista" && artistavalor == valorcriterio)
             {
                 generar = true;
+                playlistnueva.AgregarCancionesPlaylist(cancion);
+                cancionesporcriterio.Add(cancion);
             }
             else if (criterio == "genero" && generovalor == valorcriterio)
             {
                 generar = true;
+                playlistnueva.AgregarCancionesPlaylist(cancion);
+                cancionesporcriterio.Add(cancion);
 
             }
             else if (criterio == "album" && albumvalor == valorcriterio)
             {
-
                 generar = true;
+                playlistnueva.AgregarCancionesPlaylist(cancion);
+                cancionesporcriterio.Add(cancion);
             }
-
-            int c = 0;
-            foreach (Cancion cancion1 in cancionesporcriterio)
-            {
-                c += 1;
-                Console.WriteLine(cancion1.Informacion());
-            }
-            if (c == 0)
-            {
-                Console.WriteLine("Error no hay canciones en el programa con ese valor de criterio");
-            }
-          
         }
+
+        int c = 0;
+        foreach (Cancion cancion1 in cancionesporcriterio)
+        {
+            c += 1;
+            Console.WriteLine(cancion1.Informacion());
+        }
+        if (c == 0)
+        {
+            Console.WriteLine("Error no hay canciones en el programa con ese valor de criterio");
+        }
+
         if (generar == true && generarp == true)
         {
+            playlists.Add(playlistnueva);
             return true;
         }
         else
         {
+            Console.WriteLine("Hubo un problema");
             return false;
         }
     }
 
     public string VerMisPlaylists()
     {
-
+        int c = 0;
         foreach (Playlist p in playlists)
         {
+            c += 1;
             Console.WriteLine("Nombre playlist: ");
             Console.WriteLine(p.VerNombrePlaylist());
             Console.WriteLine("Con sus canciones: ");
             p.VerCancionesPlaylist();
         }
-        return "Estas son sus playlist con sus canciones respectivas";
+        if (c == 0) { return "No hay playlists";
+        }
+
+        else {
+            return "Estas son sus playlist con sus canciones respectivas";
+
+        }
+        
     }
 }

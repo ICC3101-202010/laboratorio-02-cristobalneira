@@ -9,12 +9,17 @@ namespace Proyecto2Neira
     public class Playlist
     {
         private string nombreplaylist;
-        public List<Cancion> cancionesplaylist;
+        private List<Cancion> cancionesplaylist;
 
         public Playlist(string nombreplaylist)
         {
             cancionesplaylist = new List<Cancion>();
             this.nombreplaylist = nombreplaylist;
+        }
+
+        public void AgregarCancionesPlaylist(Cancion cancion)
+        {
+            cancionesplaylist.Add(cancion);
         }
 
         public string VerNombrePlaylist()

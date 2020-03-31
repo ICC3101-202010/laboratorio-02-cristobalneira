@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{3542C5A3-CAD8-460A-9F1F-16E552DA0F59}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Proyecto2Neira/Program.cs">
     <Files>
-      <File FileName="Proyecto2Neira/Program.cs" Line="35" Column="21" />
       <File FileName="Proyecto2Neira/Cancion.cs" Line="13" Column="57" />
-      <File FileName="Proyecto2Neira/Playlist.cs" Line="30" Column="24" />
-      <File FileName="Proyecto2Neira/Espotifai.cs" Line="60" Column="77" NotebookId="1" />
+      <File FileName="Proyecto2Neira/Espotifai.cs" Line="11" Column="37" />
+      <File FileName="Proyecto2Neira/Playlist.cs" Line="10" Column="6" />
+      <File FileName="Proyecto2Neira/Program.cs" Line="22" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,9 +22,7 @@
   <MonoDevelop.Ide.ItemProperties.Proyecto2Neira PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/c/Desktop/laboratorio-02-cristobalneira/Proyecto2Neira/Proyecto2Neira/Espotifai.cs" relfile="Proyecto2Neira/Espotifai.cs" line="23" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
